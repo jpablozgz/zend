@@ -1,0 +1,23 @@
+<?php 
+$this->title = "Pets";
+$this->headTitle($this->title);
+?>
+<p><a href="<?php echo $this->url(array('controller'=>'pet',
+        'action'=>'add'));?>">Add new pet</a></p>
+<table>
+<tr>
+    <th>Pet</th>
+    <th>&nbsp;</th>
+</tr>
+<?php foreach($this->pets as $pet) : ?>
+<tr>
+    <td><?php echo $this->escape($pet->pet);?></td>
+    <td>
+        <a href="<?php echo $this->url(array('controller'=>'pet',
+            'action'=>'edit', 'idpet'=>$pet->idpet));?>">Edit</a>
+        <a href="<?php echo $this->url(array('controller'=>'pet',
+            'action'=>'delete', 'idpet'=>$pet->idpet));?>">Delete</a>
+    </td>
+</tr>
+<?php endforeach; ?>
+</table>
